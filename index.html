@@ -1,447 +1,131 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="scroll-smooth">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arle Confeitaria | O Sabor do Amor em Cada Pedaço</title>
+    <title>Arle Confeitaria | Bolos & Doces Artesanais</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        cream: {
-                            50: '#FFFDF9',
-                            100: '#FAF4EB',
-                            200: '#F5E8D8',
-                            300: '#EBD2B8',
-                        },
-                        rose: {
-                            50: '#FDF2F2',
-                            100: '#FCE4E4',
-                            300: '#E8A598',
-                            400: '#DF8B7D',
-                            500: '#C8626E',
-                            600: '#A94854',
-                        },
-                        cocoa: {
-                            800: '#4A3228',
-                            900: '#2C1B14',
-                        },
-                        gold: '#D4AF37'
-                    },
-                    fontFamily: {
-                        serif: ['"Playfair Display"', 'serif'],
-                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-    
-    <style>
-        .font-serif-title { font-family: 'Playfair Display', serif; }
-        .bg-pattern {
-            background-color: #FAF4EB;
-            background-image: radial-gradient(#E8A598 0.75px, transparent 0.75px), radial-gradient(#E8A598 0.75px, #FAF4EB 0.75px);
-            background-size: 30px 30px;
-            background-position: 0 0, 15px 15px;
-            background-opacity: 0.15;
-        }
-        .custom-shadow {
-            box-shadow: 0 10px 30px -5px rgba(200, 98, 110, 0.12);
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Arquivo CSS Separado -->
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="font-sans bg-cream-50 text-cocoa-900 antialiased selection:bg-rose-300 selection:text-white">
+<body>
 
-    <!-- Navbar Header -->
-    <header class="sticky top-0 z-40 bg-cream-50/90 backdrop-blur-md border-b border-cream-200 transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                
-                <!-- Logo -->
-                <a href="#" class="flex items-center gap-3 group">
-                    <div class="w-11 h-11 rounded-full bg-rose-500 text-white flex items-center justify-center font-serif text-2xl font-bold shadow-md group-hover:scale-105 transition-transform">
-                        A
-                    </div>
-                    <div>
-                        <span class="font-serif-title text-2xl font-bold text-cocoa-900 tracking-wide block leading-none">Arle</span>
-                        <span class="text-xs uppercase tracking-widest text-rose-500 font-medium">Confeitaria</span>
-                    </div>
+    <!-- CABEÇALHO / NAVEGAÇÃO -->
+    <header class="header">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <span>Arle</span> Confeitaria
+            </a>
+            <nav class="nav-menu" id="nav-menu">
+                <ul>
+                    <li><a href="#inicio" class="nav-link">Início</a></li>
+                    <li><a href="#sobre" class="nav-link">Sobre Nós</a></li>
+                    <li><a href="#cardapio" class="nav-link">Cardápio</a></li>
+                    <li><a href="#localizacao" class="nav-link">Onde Estamos</a></li>
+                    <li><a href="#contato" class="nav-link">Contato</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="https://wa.me/5500000000000?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20fazer%20um%20pedido." target="_blank" class="btn btn-primary">
+                    <i class="fa-brands fa-whatsapp"></i> Pedir Agora
                 </a>
-
-                <!-- Desktop Menu -->
-                <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
-                    <a href="#inicio" class="text-cocoa-900 hover:text-rose-500 transition-colors">Início</a>
-                    <a href="#sobre" class="text-cocoa-900 hover:text-rose-500 transition-colors">Nossa História</a>
-                    <a href="#cardapio" class="text-cocoa-900 hover:text-rose-500 transition-colors">Cardápio</a>
-                    <a href="#localizacao" class="text-cocoa-900 hover:text-rose-500 transition-colors">Onde Estamos</a>
-                    <a href="#avaliacoes" class="text-cocoa-900 hover:text-rose-500 transition-colors">Depoimentos</a>
-                </nav>
-
-                <!-- Action Button -->
-                <div class="hidden md:flex items-center gap-4">
-                    <button onclick="openModal()" class="bg-rose-500 hover:bg-rose-600 text-white px-5 py-2.5 rounded-full text-sm font-semibold shadow-md hover:shadow-lg transition-all flex items-center gap-2">
-                        <i class="fa-solid fa-cake-candles"></i>
-                        <span>Encomenda Especial</span>
-                    </button>
-                </div>
-
-                <!-- Mobile Menu Button -->
-                <button id="menuBtn" class="md:hidden text-cocoa-900 p-2 rounded-lg focus:outline-none" aria-label="Abrir Menu">
-                    <i class="fa-solid fa-bars text-2xl"></i>
+                <button class="mobile-toggle" id="mobile-toggle" aria-label="Abrir menu">
+                    <i class="fa-solid fa-bars"></i>
                 </button>
             </div>
-        </div>
-
-        <!-- Mobile Menu Dropdown -->
-        <div id="mobileMenu" class="hidden md:hidden bg-cream-100 border-b border-cream-200 px-4 pt-2 pb-6 space-y-3">
-            <a href="#inicio" onclick="toggleMenu()" class="block py-2 text-cocoa-900 hover:text-rose-500 font-medium">Início</a>
-            <a href="#sobre" onclick="toggleMenu()" class="block py-2 text-cocoa-900 hover:text-rose-500 font-medium">Nossa História</a>
-            <a href="#cardapio" onclick="toggleMenu()" class="block py-2 text-cocoa-900 hover:text-rose-500 font-medium">Cardápio</a>
-            <a href="#localizacao" onclick="toggleMenu()" class="block py-2 text-cocoa-900 hover:text-rose-500 font-medium">Onde Estamos</a>
-            <a href="#avaliacoes" onclick="toggleMenu()" class="block py-2 text-cocoa-900 hover:text-rose-500 font-medium">Depoimentos</a>
-            <button onclick="toggleMenu(); openModal();" class="w-full mt-2 bg-rose-500 text-white py-3 rounded-xl font-semibold shadow flex items-center justify-center gap-2">
-                <i class="fa-solid fa-cake-candles"></i> Faça sua Encomenda
-            </button>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="inicio" class="relative overflow-hidden pt-8 pb-16 md:py-24 bg-gradient-to-b from-cream-50 via-cream-100 to-cream-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                
-                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
-                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-rose-100 text-rose-600 text-xs sm:text-sm font-semibold tracking-wide">
-                        <i class="fa-solid fa-sparkles text-xs"></i>
-                        <span>Doces Artesanais & Cafeteria Gourmet</span>
-                    </div>
-
-                    <h1 class="font-serif-title text-4xl sm:text-5xl lg:text-6xl font-bold text-cocoa-900 leading-tight">
-                        Arle Confeitaria <br>
-                        <span class="italic text-rose-500 font-normal">O Sabor do Amor</span> em Cada Pedaço.
-                    </h1>
-
-                    <p class="text-cocoa-800/80 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                        Bolos decorados com perfeição, tortas cremosas, doces gourmet e o café perfeito esperando por você. Venha transformar seus momentos em memórias inesquecíveis.
-                    </p>
-
-                    <!-- CTAs -->
-                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
-                        <a href="#cardapio" class="w-full sm:w-auto bg-rose-500 hover:bg-rose-600 text-white px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all text-center flex items-center justify-center gap-2">
-                            <i class="fa-solid fa-utensils"></i>
-                            <span>Ver Nosso Cardápio</span>
-                        </a>
-                        <a href="#localizacao" class="w-full sm:w-auto bg-white border-2 border-cream-300 hover:border-rose-400 text-cocoa-900 px-8 py-4 rounded-full font-semibold shadow-sm hover:shadow transition-all text-center flex items-center justify-center gap-2">
-                            <i class="fa-solid fa-location-dot text-rose-500"></i>
-                            <span>Como Chegar</span>
-                        </a>
-                    </div>
-
-                    <!-- Quick Badges -->
-                    <div class="pt-8 border-t border-cream-200/80 grid grid-cols-3 gap-4 text-center lg:text-left">
-                        <div>
-                            <p class="font-serif-title text-2xl font-bold text-rose-500">100%</p>
-                            <p class="text-xs text-cocoa-800/70 font-medium">Ingredientes Selecionados</p>
-                        </div>
-                        <div>
-                            <p class="font-serif-title text-2xl font-bold text-rose-500">4.9★</p>
-                            <p class="text-xs text-cocoa-800/70 font-medium">Avaliação no Google</p>
-                        </div>
-                        <div>
-                            <p class="font-serif-title text-2xl font-bold text-rose-500">+5 mil</p>
-                            <p class="text-xs text-cocoa-800/70 font-medium">Clientes Encantados</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Hero Image Showcase -->
-                <div class="lg:col-span-5 relative">
-                    <div class="relative mx-auto max-w-md lg:max-w-none">
-                        <div class="absolute -top-4 -left-4 w-72 h-72 bg-rose-300/30 rounded-full blur-3xl"></div>
-                        <div class="relative bg-white p-4 rounded-3xl custom-shadow border border-cream-200">
-                            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&q=80&w=800" 
-                                 alt="Bolo Decorado Arle Confeitaria" 
-                                 class="w-full h-96 object-cover rounded-2xl shadow-inner">
-                            <div class="absolute bottom-8 right-8 bg-white/95 backdrop-blur-sm p-4 rounded-2xl shadow-lg border border-cream-200 max-w-xs flex items-center gap-3">
-                                <div class="w-10 h-10 rounded-full bg-rose-100 text-rose-500 flex items-center justify-center text-lg flex-shrink-0">
-                                    <i class="fa-solid fa-heart"></i>
-                                </div>
-                                <div>
-                                    <p class="text-xs font-bold text-cocoa-900">Especialidade da Casa</p>
-                                    <p class="text-xs text-cocoa-800/70">Bolo Red Velvet com Ninho</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+    <!-- SEÇÃO HERO (BOAS-VINDAS DO GOOGLE) -->
+    <section id="inicio" class="hero">
+        <div class="container hero-content">
+            <span class="badge">Doces e Bolos Artesanais</span>
+            <h1>Adoce seus momentos com carinho e sabor único</h1>
+            <p>Seja bem-vindo à <strong>Arle Confeitaria</strong>! Preparamos receitas exclusivas, bolos decorados e doces finos para transformar seu dia em uma celebração inesquecível.</p>
+            <div class="hero-buttons">
+                <a href="#cardapio" class="btn btn-primary">Ver Nosso Cardápio</a>
+                <a href="#localizacao" class="btn btn-outline"><i class="fa-solid fa-location-dot"></i> Como Chegar</a>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="sobre" class="py-16 md:py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                
-                <div class="grid grid-cols-2 gap-4">
-                    <img src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?auto=format&fit=crop&q=80&w=500" alt="Produção de Doces" class="rounded-2xl h-64 w-full object-cover shadow-sm hover:scale-[1.02] transition-transform">
-                    <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&q=80&w=500" alt="Doces no Balcão" class="rounded-2xl h-64 w-full object-cover shadow-sm mt-8 hover:scale-[1.02] transition-transform">
-                </div>
-
-                <div class="space-y-6">
-                    <span class="text-rose-500 font-semibold text-sm uppercase tracking-wider">Nossa História</span>
-                    <h2 class="font-serif-title text-3xl sm:text-4xl font-bold text-cocoa-900">
-                        Carinho, afeto e receitas familiares em cada detalhe.
-                    </h2>
-                    <p class="text-cocoa-800/80 leading-relaxed">
-                        A **Arle Confeitaria** nasceu do sonho de levar doçura e aconchego para a mesa das famílias. Desde as primeiras fornadas artesanais até o nosso espaço atual, mantemos viva a essência da confeitaria clássica combinada com a elegância moderna.
-                    </p>
-                    <p class="text-cocoa-800/80 leading-relaxed">
-                        Seja para um café da tarde especial, um bolo de aniversário inesquecível ou docinhos para o seu evento, cada produto é preparado diariamente com insumos premium e muito amor.
-                    </p>
-
-                    <div class="pt-2 flex items-center gap-6">
-                        <div class="flex items-center gap-3">
-                            <i class="fa-solid fa-wheat-awn text-2xl text-rose-500"></i>
-                            <span class="text-sm font-semibold text-cocoa-900">Fornadas Diárias</span>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <i class="fa-solid fa-mug-hot text-2xl text-rose-500"></i>
-                            <span class="text-sm font-semibold text-cocoa-900">Café Especial</span>
-                        </div>
+    <!-- SEÇÃO SOBRE -->
+    <section id="sobre" class="sobre">
+        <div class="container sobre-grid">
+            <div class="sobre-img">
+                <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&q=80&w=800" alt="Bolo gourmet da Arle Confeitaria">
+            </div>
+            <div class="sobre-text">
+                <h2>Feito à mão, com amor e ingredientes selecionados</h2>
+                <p>A Arle Confeitaria nasceu da paixão por criar momentos doces. Cada fatia, brigadeiro e café servido é preparado com técnicas artesanais e ingredientes de alta qualidade.</p>
+                <p>Venha nos visitar para um café da tarde especial ou encomende o bolo perfeito para o seu evento!</p>
+                <div class="diferenciais">
+                    <div class="dif-item">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        <span>Receitas Exclusivas</span>
+                    </div>
+                    <div class="dif-item">
+                        <i class="fa-solid fa-heart"></i>
+                        <span>Atendimento Acolhedor</span>
+                    </div>
+                    <div class="dif-item">
+                        <i class="fa-solid fa-cake-candles"></i>
+                        <span>Encomendas Especiais</span>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <!-- Interactive Menu Gallery -->
-    <section id="cardapio" class="py-16 md:py-24 bg-cream-100/60">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
-            <div class="text-center max-w-3xl mx-auto mb-12">
-                <span class="text-rose-500 font-semibold text-sm uppercase tracking-wider">Cardápio de Delícias</span>
-                <h2 class="font-serif-title text-3xl sm:text-4xl font-bold text-cocoa-900 mt-2">
-                    Explore Nossas Especialidades
-                </h2>
-                <p class="text-cocoa-800/70 mt-3">
-                    Escolha sua categoria preferida e encomende direto pelo WhatsApp.
-                </p>
-                
-                <!-- Category Filter Tabs -->
-                <div class="flex flex-wrap items-center justify-center gap-2 mt-8">
-                    <button onclick="filterCategory('todos')" class="filter-btn active bg-rose-500 text-white px-5 py-2 rounded-full text-sm font-medium transition-all shadow-sm" data-category="todos">
-                        Todos
-                    </button>
-                    <button onclick="filterCategory('bolos')" class="filter-btn bg-white hover:bg-rose-100 text-cocoa-900 px-5 py-2 rounded-full text-sm font-medium transition-all border border-cream-200" data-category="bolos">
-                        Bolos Especiais
-                    </button>
-                    <button onclick="filterCategory('tortas')" class="filter-btn bg-white hover:bg-rose-100 text-cocoa-900 px-5 py-2 rounded-full text-sm font-medium transition-all border border-cream-200" data-category="tortas">
-                        Tortas & Fatias
-                    </button>
-                    <button onclick="filterCategory('doces')" class="filter-btn bg-white hover:bg-rose-100 text-cocoa-900 px-5 py-2 rounded-full text-sm font-medium transition-all border border-cream-200" data-category="doces">
-                        Docinhos Gourmet
-                    </button>
-                    <button onclick="filterCategory('cafeteria')" class="filter-btn bg-white hover:bg-rose-100 text-cocoa-900 px-5 py-2 rounded-full text-sm font-medium transition-all border border-cream-200" data-category="cafeteria">
-                        Cafeteria & Salgados
-                    </button>
-                </div>
+    <!-- SEÇÃO CARDÁPIO EM DESTAQUE -->
+    <section id="cardapio" class="cardapio">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nossos Destaques</h2>
+                <p>Confira algumas das delícias mais pedidas da nossa confeitaria</p>
             </div>
 
-            <!-- Menu Grid -->
-            <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                
-                <!-- Product 1 -->
-                <div class="product-card bg-white rounded-2xl overflow-hidden border border-cream-200 custom-shadow hover:-translate-y-1 transition-transform duration-300" data-cat="bolos">
-                    <div class="relative h-56 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1535141192574-5d4897c13136?auto=format&fit=crop&q=80&w=600" alt="Bolo Velvet Velvet" class="w-full h-full object-cover">
-                        <span class="absolute top-3 right-3 bg-rose-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow">Mais Pedido</span>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center justify-between mb-2">
-                            <h3 class="font-serif-title text-xl font-bold text-cocoa-900">Bolo Red Velvet Premium</h3>
-                            <span class="text-rose-600 font-bold text-lg">R$ 130</span>
-                        </div>
-                        <p class="text-cocoa-800/70 text-sm mb-4">Massa aveludada, recheio generoso de cream cheese e geleia artesanal de frutas vermelhas.</p>
-                        <button onclick="orderItem('Bolo Red Velvet Premium')" class="w-full bg-cream-100 hover:bg-rose-500 hover:text-white text-cocoa-900 font-semibold py-2.5 rounded-xl text-sm transition-colors flex items-center justify-center gap-2">
-                            <i class="fa-brands fa-whatsapp text-lg text-emerald-600 hover:text-white"></i> Encomendar no WhatsApp
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Product 2 -->
-                <div class="product-card bg-white rounded-2xl overflow-hidden border border-cream-200 custom-shadow hover:-translate-y-1 transition-transform duration-300" data-cat="tortas">
-                    <div class="relative h-56 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&q=80&w=600" alt="Torta de Limão" class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center justify-between mb-2">
-                            <h3 class="font-serif-title text-xl font-bold text-cocoa-900">Torta de Limão com Merengue</h3>
-                            <span class="text-rose-600 font-bold text-lg">R$ 85</span>
-                        </div>
-                        <p class="text-cocoa-800/70 text-sm mb-4">Base crocante de biscoito, creme leve de limão siciliano e cobertura de merengue maçaricado.</p>
-                        <button onclick="orderItem('Torta de Limão com Merengue')" class="w-full bg-cream-100 hover:bg-rose-500 hover:text-white text-cocoa-900 font-semibold py-2.5 rounded-xl text-sm transition-colors flex items-center justify-center gap-2">
-                            <i class="fa-brands fa-whatsapp text-lg text-emerald-600"></i> Encomendar no WhatsApp
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Product 3 -->
-                <div class="product-card bg-white rounded-2xl overflow-hidden border border-cream-200 custom-shadow hover:-translate-y-1 transition-transform duration-300" data-cat="doces">
-                    <div class="relative h-56 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&q=80&w=600" alt="Brigadeiros Gourmet" class="w-full h-full object-cover">
-                        <span class="absolute top-3 right-3 bg-gold text-white text-xs font-bold px-3 py-1 rounded-full shadow">Caixa de Presente</span>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center justify-between mb-2">
-                            <h3 class="font-serif-title text-xl font-bold text-cocoa-900">Caixa Brig. Gourmet (12 un)</h3>
-                            <span class="text-rose-600 font-bold text-lg">R$ 48</span>
-                        </div>
-                        <p class="text-cocoa-800/70 text-sm mb-4">Sabores: Belga ao Leite, Pistache, Ninho com Nutella e Churros. Feitos com chocolate nobre.</p>
-                        <button onclick="orderItem('Caixa Brigadeiros Gourmet')" class="w-full bg-cream-100 hover:bg-rose-500 hover:text-white text-cocoa-900 font-semibold py-2.5 rounded-xl text-sm transition-colors flex items-center justify-center gap-2">
-                            <i class="fa-brands fa-whatsapp text-lg text-emerald-600"></i> Encomendar no WhatsApp
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Product 4 -->
-                <div class="product-card bg-white rounded-2xl overflow-hidden border border-cream-200 custom-shadow hover:-translate-y-1 transition-transform duration-300" data-cat="bolos">
-                    <div class="relative h-56 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&q=80&w=600" alt="Bolo de Morango" class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center justify-between mb-2">
-                            <h3 class="font-serif-title text-xl font-bold text-cocoa-900">Bolo Ninho com Morangos</h3>
-                            <span class="text-rose-600 font-bold text-lg">R$ 120</span>
-                        </div>
-                        <p class="text-cocoa-800/70 text-sm mb-4">Pão de ló fofinho, recheio cremoso de Leite Ninho e morangos frescos selecionados.</p>
-                        <button onclick="orderItem('Bolo Ninho com Morangos')" class="w-full bg-cream-100 hover:bg-rose-500 hover:text-white text-cocoa-900 font-semibold py-2.5 rounded-xl text-sm transition-colors flex items-center justify-center gap-2">
-                            <i class="fa-brands fa-whatsapp text-lg text-emerald-600"></i> Encomendar no WhatsApp
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Product 5 -->
-                <div class="product-card bg-white rounded-2xl overflow-hidden border border-cream-200 custom-shadow hover:-translate-y-1 transition-transform duration-300" data-cat="cafeteria">
-                    <div class="relative h-56 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&q=80&w=600" alt="Cappuccino e Croissant" class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center justify-between mb-2">
-                            <h3 class="font-serif-title text-xl font-bold text-cocoa-900">Combo Café & Croissant</h3>
-                            <span class="text-rose-600 font-bold text-lg">R$ 28</span>
-                        </div>
-                        <p class="text-cocoa-800/70 text-sm mb-4">Cappuccino cremoso com canela acompanhado de Croissant folhado amanteigado.</p>
-                        <button onclick="orderItem('Combo Café e Croissant')" class="w-full bg-cream-100 hover:bg-rose-500 hover:text-white text-cocoa-900 font-semibold py-2.5 rounded-xl text-sm transition-colors flex items-center justify-center gap-2">
-                            <i class="fa-brands fa-whatsapp text-lg text-emerald-600"></i> Consultar Disponibilidade
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Product 6 -->
-                <div class="product-card bg-white rounded-2xl overflow-hidden border border-cream-200 custom-shadow hover:-translate-y-1 transition-transform duration-300" data-cat="tortas">
-                    <div class="relative h-56 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&q=80&w=600" alt="Cheesecake Frutas Vermelhas" class="w-full h-full object-cover">
-                        <span class="absolute top-3 right-3 bg-rose-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow">Novidade</span>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center justify-between mb-2">
-                            <h3 class="font-serif-title text-xl font-bold text-cocoa-900">Cheesecake de Frutas</h3>
-                            <span class="text-rose-600 font-bold text-lg">R$ 95</span>
-                        </div>
-                        <p class="text-cocoa-800/70 text-sm mb-4">Massa crocante, cream cheese tradicional baked e coulis caseiro de amoras e framboesas.</p>
-                        <button onclick="orderItem('Cheesecake de Frutas Vermelhas')" class="w-full bg-cream-100 hover:bg-rose-500 hover:text-white text-cocoa-900 font-semibold py-2.5 rounded-xl text-sm transition-colors flex items-center justify-center gap-2">
-                            <i class="fa-brands fa-whatsapp text-lg text-emerald-600"></i> Encomendar no WhatsApp
-                        </button>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section id="avaliacoes" class="py-16 md:py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto mb-12">
-                <span class="text-rose-500 font-semibold text-sm uppercase tracking-wider">Depoimentos</span>
-                <h2 class="font-serif-title text-3xl sm:text-4xl font-bold text-cocoa-900 mt-2">
-                    O Que Dizem Nossos Clientes
-                </h2>
-                <div class="flex items-center justify-center gap-1 text-gold text-lg mt-3">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <span class="text-cocoa-900 text-sm font-semibold ml-2">4.9 em mais de 350 avaliações no Google</span>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-cream-50 p-6 rounded-2xl border border-cream-200">
-                    <div class="flex items-center gap-1 text-gold text-sm mb-3">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                    </div>
-                    <p class="text-cocoa-800/80 text-sm italic mb-4">
-                        "Encomendei o bolo de aniversário da minha filha na Arle Confeitaria e foi um sucesso absoluto! Além de lindo, estava leve e muito saboroso."
-                    </p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-9 h-9 rounded-full bg-rose-300 flex items-center justify-center font-bold text-white text-xs">
-                            MC
-                        </div>
-                        <div>
-                            <p class="text-sm font-bold text-cocoa-900">Mariana Costa</p>
-                            <p class="text-xs text-cocoa-800/60">Cliente no Google</p>
+            <div class="cards-grid">
+                <!-- Card 1 -->
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1535141192574-5d4897c13136?auto=format&fit=crop&q=80&w=600" alt="Bolo Red Velvet">
+                    <div class="card-body">
+                        <h3>Bolo Red Velvet</h3>
+                        <p>Massa aveludada com toque de cacau e recheio cremoso de cream cheese artesanal.</p>
+                        <div class="card-footer">
+                            <span class="preco">R$ 18,00 / fatia</span>
+                            <a href="https://wa.me/5500000000000?text=Quero%20encomendar%20o%20Bolo%20Red%20Velvet" target="_blank" class="btn-sm"><i class="fa-brands fa-whatsapp"></i> Pedir</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="bg-cream-50 p-6 rounded-2xl border border-cream-200">
-                    <div class="flex items-center gap-1 text-gold text-sm mb-3">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                    </div>
-                    <p class="text-cocoa-800/80 text-sm italic mb-4">
-                        "O ambiente é extremamente acolhedor e limpo. O Cappuccino com o croissant de presunto e queijo é a minha rotina preferida nos sábados."
-                    </p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-9 h-9 rounded-full bg-rose-400 flex items-center justify-center font-bold text-white text-xs">
-                            RS
-                        </div>
-                        <div>
-                            <p class="text-sm font-bold text-cocoa-900">Rodrigo Silva</p>
-                            <p class="text-xs text-cocoa-800/60">Cliente no Google</p>
+                <!-- Card 2 -->
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&q=80&w=600" alt="Croissants e Folheados">
+                    <div class="card-body">
+                        <h3>Croissant Artesanal</h3>
+                        <p>Massa folhada de manteiga, dourada e crocante por fora, macia por dentro.</p>
+                        <div class="card-footer">
+                            <span class="preco">R$ 12,00</span>
+                            <a href="https://wa.me/5500000000000?text=Quero%20pedir%20o%20Croissant%20Artesanal" target="_blank" class="btn-sm"><i class="fa-brands fa-whatsapp"></i> Pedir</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="bg-cream-50 p-6 rounded-2xl border border-cream-200">
-                    <div class="flex items-center gap-1 text-gold text-sm mb-3">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                    </div>
-                    <p class="text-cocoa-800/80 text-sm italic mb-4">
-                        "Melhor Red Velvet da cidade sem sombra de dúvidas! Recheio no ponto certo, nada enjoativo. Atendimento via WhatsApp nota 10."
-                    </p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-9 h-9 rounded-full bg-rose-500 flex items-center justify-center font-bold text-white text-xs">
-                            FA
-                        </div>
-                        <div>
-                            <p class="text-sm font-bold text-cocoa-900">Fernanda Almeida</p>
-                            <p class="text-xs text-cocoa-800/60">Cliente no Google</p>
+                <!-- Card 3 -->
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&q=80&w=600" alt="Torta de Morango">
+                    <div class="card-body">
+                        <h3>Torta de Morango</h3>
+                        <p>Base crocante, creme patissière especial e morangos frescos selecionados.</p>
+                        <div class="card-footer">
+                            <span class="preco">R$ 16,00 / fatia</span>
+                            <a href="https://wa.me/5500000000000?text=Quero%20pedir%20a%20Torta%20de%20Morango" target="_blank" class="btn-sm"><i class="fa-brands fa-whatsapp"></i> Pedir</a>
                         </div>
                     </div>
                 </div>
@@ -449,180 +133,80 @@
         </div>
     </section>
 
-    <!-- Location & Opening Hours Section -->
-    <section id="localizacao" class="py-16 md:py-24 bg-cream-100/80">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
-                
-                <div class="lg:col-span-5 space-y-6">
-                    <div>
-                        <span class="text-rose-500 font-semibold text-sm uppercase tracking-wider">Venha nos Visitar</span>
-                        <h2 class="font-serif-title text-3xl sm:text-4xl font-bold text-cocoa-900 mt-1">
-                            Onde Fica a Arle Confeitaria
-                        </h2>
-                    </div>
+    <!-- SEÇÃO LOCALIZAÇÃO & HORÁRIO -->
+    <section id="localizacao" class="localizacao">
+        <div class="container">
+            <div class="section-title">
+                <h2>Venha nos Fazer uma Visita</h2>
+                <p>Estamos ansiosos para te receber em nosso espaço aconchegante!</p>
+            </div>
 
-                    <!-- Dynamic Open Status Badge -->
-                    <div id="statusBadge" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold transition-all">
-                        <span class="w-2.5 h-2.5 rounded-full animate-ping"></span>
-                        <span id="statusText">Verificando horário...</span>
-                    </div>
-
-                    <div class="space-y-4">
-                        <div class="flex items-start gap-4 p-4 bg-white rounded-2xl border border-cream-200 shadow-sm">
-                            <div class="w-10 h-10 rounded-xl bg-rose-100 text-rose-500 flex items-center justify-center flex-shrink-0 text-lg">
-                                <i class="fa-solid fa-location-dot"></i>
-                            </div>
-                            <div>
-                                <p class="font-bold text-cocoa-900">Endereço</p>
-                                <p class="text-sm text-cocoa-800/80">Rua das Flores, nº 123 - Centro</p>
-                                <p class="text-xs text-cocoa-800/60">Estacionamento próprio no local</p>
-                            </div>
-                        </div>
-
-                        <div class="flex items-start gap-4 p-4 bg-white rounded-2xl border border-cream-200 shadow-sm">
-                            <div class="w-10 h-10 rounded-xl bg-rose-100 text-rose-500 flex items-center justify-center flex-shrink-0 text-lg">
-                                <i class="fa-solid fa-clock"></i>
-                            </div>
-                            <div>
-                                <p class="font-bold text-cocoa-900">Horário de Funcionamento</p>
-                                <p class="text-sm text-cocoa-800/80">Terça a Sábado: 09:00h às 19:00h</p>
-                                <p class="text-sm text-cocoa-800/80">Domingos e Feriados: 10:00h às 18:00h</p>
-                                <p class="text-xs text-rose-500 font-medium mt-1">Segunda-feira: Fechado para descanso</p>
-                            </div>
-                        </div>
-
-                        <div class="flex items-start gap-4 p-4 bg-white rounded-2xl border border-cream-200 shadow-sm">
-                            <div class="w-10 h-10 rounded-xl bg-rose-100 text-rose-500 flex items-center justify-center flex-shrink-0 text-lg">
-                                <i class="fa-solid fa-phone"></i>
-                            </div>
-                            <div>
-                                <p class="font-bold text-cocoa-900">Contato & Encomendas</p>
-                                <p class="text-sm text-cocoa-800/80">(41) 99999-8888</p>
-                                <p class="text-xs text-cocoa-800/60">Atendimento presencial e delivery</p>
-                            </div>
+            <div class="loc-grid">
+                <div class="loc-info">
+                    <div class="info-card">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <div>
+                            <h4>Endereço</h4>
+                            <p>Rua dos Doces, 123 - Bairro Central</p>
+                            <p>Sua Cidade - UF</p>
                         </div>
                     </div>
 
-                    <a href="https://maps.google.com" target="_blank" class="w-full bg-cocoa-900 hover:bg-cocoa-800 text-white font-semibold py-4 rounded-xl shadow text-center flex items-center justify-center gap-2 transition-all">
-                        <i class="fa-solid fa-route text-rose-300"></i>
-                        <span>Abrir Rota no Google Maps</span>
+                    <div class="info-card">
+                        <i class="fa-solid fa-clock"></i>
+                        <div>
+                            <h4>Horário de Funcionamento</h4>
+                            <p>Terça a Sábado: 09h às 19h</p>
+                            <p>Domingos: 10h às 18h</p>
+                            <p><em>Segunda-feira: Fechado</em></p>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <i class="fa-solid fa-phone"></i>
+                        <div>
+                            <h4>Contato & Encomendas</h4>
+                            <p>(00) 99999-8888</p>
+                            <p>contato@arleconfeitaria.com.br</p>
+                        </div>
+                    </div>
+
+                    <a href="https://maps.google.com" target="_blank" class="btn btn-primary btn-block">
+                        <i class="fa-solid fa-map-location-dot"></i> Abrir no Google Maps
                     </a>
                 </div>
 
-                <!-- Interactive Map Visual -->
-                <div class="lg:col-span-7">
-                    <div class="bg-white p-3 rounded-3xl border border-cream-200 shadow-md h-full flex flex-col">
-                        <div class="relative w-full h-80 lg:h-full min-h-[320px] rounded-2xl overflow-hidden bg-cream-200">
-                            <!-- Placeholder Map Canvas Simulation -->
-                            <iframe 
-                                title="Mapa Arle Confeitaria"
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3602.990812739199!2d-49.5284!3d-25.4485!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDI2JzU0LjYiUyA0OcKwMzEnNDIuMiJX!5e0!3m2!1spt-BR!2sbr!4v1650000000000!5m2!1spt-BR!2sbr" 
-                                class="w-full h-full border-0 rounded-2xl" 
-                                allowfullscreen="" 
-                                loading="lazy">
-                            </iframe>
-                        </div>
-                    </div>
+                <!-- Mapa Incorporado -->
+                <div class="mapa-box">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.1975731238423!2d-46.65867!3d-23.561414!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDMzJzQxLjEiUyA0NsKwMzknMzEuMiJX!5e0!3m2!1spt-BR!2sbr!4v1620000000000!5m2!1spt-BR!2sbr" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <!-- Custom Order Modal -->
-    <div id="orderModal" class="fixed inset-0 z-50 hidden bg-cocoa-900/60 backdrop-blur-sm flex items-center justify-center p-4">
-        <div class="bg-white rounded-3xl max-w-xl w-full p-6 sm:p-8 custom-shadow border border-cream-200 relative max-h-[90vh] overflow-y-auto">
-            
-            <button onclick="closeModal()" class="absolute top-5 right-5 text-cocoa-800/60 hover:text-cocoa-900 text-xl w-9 h-9 rounded-full bg-cream-100 flex items-center justify-center">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-
-            <div class="text-center mb-6">
-                <div class="w-12 h-12 bg-rose-100 text-rose-500 rounded-full flex items-center justify-center mx-auto mb-3 text-xl">
-                    <i class="fa-solid fa-cake-candles"></i>
-                </div>
-                <h3 class="font-serif-title text-2xl font-bold text-cocoa-900">Monte seu Bolo Especial</h3>
-                <p class="text-xs text-cocoa-800/70 mt-1">Preencha os detalhes e receba um orçamento instantâneo no WhatsApp!</p>
+    <!-- RODAPÉ -->
+    <footer id="contato" class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <h3><span>Arle</span> Confeitaria</h3>
+                <p>O lugar perfeito para deixar a sua vida mais doce.</p>
             </div>
-
-            <form id="cakeForm" onsubmit="handleFormSubmit(event)" class="space-y-4">
-                <div>
-                    <label class="block text-xs font-bold uppercase tracking-wider text-cocoa-900 mb-1">Seu Nome</label>
-                    <input type="text" id="custName" required placeholder="Ex: Maria Oliveira" class="w-full bg-cream-50 border border-cream-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-rose-500">
-                </div>
-
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-xs font-bold uppercase tracking-wider text-cocoa-900 mb-1">Tamanho do Bolo</label>
-                        <select id="cakeSize" class="w-full bg-cream-50 border border-cream-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-rose-500">
-                            <option value="Pequeno (~10 fatias)">Pequeno (~10 fatias)</option>
-                            <option value="Médio (~20 fatias)" selected>Médio (~20 fatias)</option>
-                            <option value="Grande (~30 fatias)">Grande (~30 fatias)</option>
-                            <option value="2 Andares (~45 fatias)">2 Andares (~45 fatias)</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold uppercase tracking-wider text-cocoa-900 mb-1">Sabor Favorito</label>
-                        <select id="cakeFlavor" class="w-full bg-cream-50 border border-cream-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-rose-500">
-                            <option value="Red Velvet com Ninho">Red Velvet com Ninho</option>
-                            <option value="Ninho com Morangos">Ninho com Morangos</option>
-                            <option value="Brigadeiro Gourmet Belga">Brigadeiro Gourmet Belga</option>
-                            <option value="Doce de Leite com Nozes">Doce de Leite com Nozes</option>
-                            <option value="Outro (Especificar nas observações)">Outro Sabor</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div>
-                    <label class="block text-xs font-bold uppercase tracking-wider text-cocoa-900 mb-1">Data do Evento</label>
-                    <input type="date" id="eventDate" required class="w-full bg-cream-50 border border-cream-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-rose-500">
-                </div>
-
-                <div>
-                    <label class="block text-xs font-bold uppercase tracking-wider text-cocoa-900 mb-1">Observações ou Decoração Especial</label>
-                    <textarea id="cakeNotes" rows="3" placeholder="Ex: Adicionar topo com nome, cores em tons pastéis..." class="w-full bg-cream-50 border border-cream-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-rose-500"></textarea>
-                </div>
-
-                <button type="submit" class="w-full bg-rose-500 hover:bg-rose-600 text-white font-bold py-3.5 rounded-xl shadow-lg transition-all flex items-center justify-center gap-2">
-                    <i class="fa-brands fa-whatsapp text-xl"></i>
-                    <span>Enviar Orçamento para o WhatsApp</span>
-                </button>
-            </form>
+            <div class="footer-social">
+                <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://wa.me/5500000000000" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
         </div>
-    </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Arle Confeitaria. Todos os direitos reservados.</p>
+        </div>
+    </footer>
 
-    <!-- Footer -->
-    <footer class="bg-cocoa-900 text-cream-100 pt-16 pb-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-12 border-b border-cocoa-800">
-                
-                <div class="space-y-4 md:col-span-2">
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-full bg-rose-500 text-white flex items-center justify-center font-serif text-xl font-bold">
-                            A
-                        </div>
-                        <span class="font-serif-title text-2xl font-bold tracking-wide">Arle Confeitaria</span>
-                    </div>
-                    <p class="text-cream-200/70 text-sm max-w-sm leading-relaxed">
-                        Transformando ingredientes nobres em momentos de pura felicidade. Bolos decorados, tortas e cafeteria artesanal.
-                    </p>
-                    <div class="flex items-center gap-3 pt-2">
-                        <a href="#" class="w-10 h-10 rounded-full bg-cocoa-800 hover:bg-rose-500 text-white flex items-center justify-center transition-colors">
-                            <i class="fa-brands fa-instagram text-lg"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-cocoa-800 hover:bg-rose-500 text-white flex items-center justify-center transition-colors">
-                            <i class="fa-brands fa-whatsapp text-lg"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-cocoa-800 hover:bg-rose-500 text-white flex items-center justify-center transition-colors">
-                            <i class="fa-brands fa-facebook-f text-sm"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div>
-                    <h4 class="font-serif-title font-bold text-lg text-white mb-4">Navegação</h4>
-                    <ul class="space-y-2 text-sm text-cream-200/70">
-                        <li><a href="#inicio" class="hover:text-rose-300 transition-colors">Início</a></li>
-                        <li><a href="#sobre" class="hover:text-rose-300 transition-colors">Nossa História</a></li>
-                        <li><a href="#cardapio" class="hover
+    <!-- Arquivo JS Separado -->
+    <script src="script.js"></script>
+</body>
+</html>
