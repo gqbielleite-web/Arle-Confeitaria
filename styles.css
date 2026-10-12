@@ -1,16 +1,11 @@
-/* ==========================================================================
-   ARLE CONFEITARIA - ESTILOS E CORES (CSS)
-   ========================================================================== */
-
-/* PALETA DE CORES E VARIÁVEIS */
 :root {
-    --primary: #c88a58;        /* Caramelo / Doce de leite */
-    --primary-dark: #a66a38;   /* Chocolate / Cacau */
-    --secondary: #fef1e6;      /* Creme claro / Baunilha */
-    --accent: #e8a598;         /* Rosa chá / Blush */
-    --bg-body: #fffbf7;        /* Fundo suave aconchegante */
-    --text-dark: #3b2c24;       /* Castanho escuro para leitura */
-    --text-muted: #7d6b60;     /* Texto secundário */
+    --primary: #c88a58;
+    --primary-dark: #a66a38;
+    --secondary: #fef1e6;
+    --accent: #e8a598;
+    --bg-body: #fffbf7;
+    --text-dark: #3b2c24;
+    --text-muted: #7d6b60;
     --white: #ffffff;
     --shadow: 0 10px 25px rgba(59, 44, 36, 0.08);
     --transition: all 0.3s ease;
@@ -18,7 +13,6 @@
     --font-body: 'Poppins', sans-serif;
 }
 
-/* RESET GERAL */
 * {
     margin: 0;
     padding: 0;
@@ -56,7 +50,6 @@ img {
     padding: 0 20px;
 }
 
-/* BOTÕES E COMPONENTES */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -129,7 +122,6 @@ img {
     color: var(--text-muted);
 }
 
-/* CABEÇALHO / MENU */
 .header {
     position: sticky;
     top: 0;
@@ -186,7 +178,6 @@ img {
     cursor: pointer;
 }
 
-/* HERO (BOAS-VINDAS) */
 .hero {
     padding: 90px 0 70px;
     background: linear-gradient(135deg, #fffbf7 0%, #fef1e6 100%);
@@ -218,7 +209,6 @@ img {
     flex-wrap: wrap;
 }
 
-/* SEÇÃO SOBRE */
 .sobre {
     padding: 80px 0;
     background-color: var(--white);
@@ -247,7 +237,6 @@ img {
     margin-bottom: 15px;
 }
 
-/* CARDÁPIO COM FILTROS DE CATEGORIA */
 .cardapio {
     padding: 80px 0;
 }
@@ -336,7 +325,6 @@ img {
     font-size: 1.1rem;
 }
 
-/* LOCALIZAÇÃO */
 .localizacao {
     padding: 80px 0;
     background-color: var(--white);
@@ -379,7 +367,6 @@ img {
     box-shadow: var(--shadow);
 }
 
-/* RODAPÉ */
 .footer {
     background-color: var(--text-dark);
     color: var(--white);
@@ -437,7 +424,6 @@ img {
     color: #a09289;
 }
 
-/* RESPONSIVO (CELULARES) */
 @media (max-width: 768px) {
     .menu-toggle {
         display: block;
