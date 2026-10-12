@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arle Confeitaria | Bolos & Doces Artesanais</title>
-    <!-- Google Fonts -->
+    <!-- Fontes do Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <!-- Font Awesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Ícones Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Arquivo CSS Separado -->
+    
+    <!-- CONEXÃO COM O CSS (AQUI É ONDE A COR É CARREGADA) -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -31,22 +32,22 @@
                 </ul>
             </nav>
             <div class="header-actions">
-                <a href="https://wa.me/5500000000000?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20fazer%20um%20pedido." target="_blank" class="btn btn-primary">
-                    <i class="fa-brands fa-whatsapp"></i> Pedir Agora
-                </a>
-                <button class="mobile-toggle" id="mobile-toggle" aria-label="Abrir menu">
+                <button onclick="pedirWhatsApp('Atendimento Geral')" class="btn btn-whatsapp">
+                    <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                </button>
+                <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu">
                     <i class="fa-solid fa-bars"></i>
                 </button>
             </div>
         </div>
     </header>
 
-    <!-- SEÇÃO HERO (BOAS-VINDAS DO GOOGLE) -->
+    <!-- SEÇÃO HERO (BOAS-VINDAS) -->
     <section id="inicio" class="hero">
         <div class="container hero-content">
             <span class="badge">Doces e Bolos Artesanais</span>
             <h1>Adoce seus momentos com carinho e sabor único</h1>
-            <p>Seja bem-vindo à <strong>Arle Confeitaria</strong>! Preparamos receitas exclusivas, bolos decorados e doces finos para transformar seu dia em uma celebração inesquecível.</p>
+            <p>Seja bem-vindo à <strong>Arle Confeitaria</strong>! Receitas exclusivas, bolos decorados e doces finos preparados com ingredientes selecionados para deixar o seu dia especial.</p>
             <div class="hero-buttons">
                 <a href="#cardapio" class="btn btn-primary">Ver Nosso Cardápio</a>
                 <a href="#localizacao" class="btn btn-outline"><i class="fa-solid fa-location-dot"></i> Como Chegar</a>
@@ -58,74 +59,69 @@
     <section id="sobre" class="sobre">
         <div class="container sobre-grid">
             <div class="sobre-img">
-                <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&q=80&w=800" alt="Bolo gourmet da Arle Confeitaria">
+                <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&q=80&w=800" alt="Bolo especial da Arle Confeitaria">
             </div>
             <div class="sobre-text">
-                <h2>Feito à mão, com amor e ingredientes selecionados</h2>
-                <p>A Arle Confeitaria nasceu da paixão por criar momentos doces. Cada fatia, brigadeiro e café servido é preparado com técnicas artesanais e ingredientes de alta qualidade.</p>
-                <p>Venha nos visitar para um café da tarde especial ou encomende o bolo perfeito para o seu evento!</p>
-                <div class="diferenciais">
-                    <div class="dif-item">
-                        <i class="fa-solid fa-wand-magic-sparkles"></i>
-                        <span>Receitas Exclusivas</span>
-                    </div>
-                    <div class="dif-item">
-                        <i class="fa-solid fa-heart"></i>
-                        <span>Atendimento Acolhedor</span>
-                    </div>
-                    <div class="dif-item">
-                        <i class="fa-solid fa-cake-candles"></i>
-                        <span>Encomendas Especiais</span>
-                    </div>
-                </div>
+                <h2>Feito à mão, com amor e ingredientes de qualidade</h2>
+                <p>A Arle Confeitaria nasceu do desejo de transformar momentos simples em lembranças inesquecíveis.</p>
+                <p>Venha tomar um café conosco ou encomende o bolo perfeito para sua festa!</p>
             </div>
         </div>
     </section>
 
-    <!-- SEÇÃO CARDÁPIO EM DESTAQUE -->
+    <!-- SEÇÃO CARDÁPIO (COMPATÍVEL COM O SEU SCRIPT.JS) -->
     <section id="cardapio" class="cardapio">
         <div class="container">
             <div class="section-title">
-                <h2>Nossos Destaques</h2>
-                <p>Confira algumas das delícias mais pedidas da nossa confeitaria</p>
+                <h2>Nosso Cardápio</h2>
+                <p>Escolha uma categoria para filtrar nossas delícias</p>
             </div>
 
-            <div class="cards-grid">
-                <!-- Card 1 -->
-                <div class="card">
+            <!-- Botões de Filtro -->
+            <div class="category-filters">
+                <button class="category-btn active" data-category="todos">Todos</button>
+                <button class="category-btn" data-category="bolos">Bolos</button>
+                <button class="category-btn" data-category="doces">Doces</button>
+                <button class="category-btn" data-category="salgados">Salgados</button>
+            </div>
+
+            <!-- Grade de Produtos -->
+            <div class="menu-grid">
+                <!-- Item 1 -->
+                <div class="menu-item" data-category="bolos">
                     <img src="https://images.unsplash.com/photo-1535141192574-5d4897c13136?auto=format&fit=crop&q=80&w=600" alt="Bolo Red Velvet">
-                    <div class="card-body">
+                    <div class="menu-item-body">
                         <h3>Bolo Red Velvet</h3>
-                        <p>Massa aveludada com toque de cacau e recheio cremoso de cream cheese artesanal.</p>
-                        <div class="card-footer">
+                        <p>Massa macia com toque de cacau e recheio cremoso de cream cheese artesanal.</p>
+                        <div class="menu-item-footer">
                             <span class="preco">R$ 18,00 / fatia</span>
-                            <a href="https://wa.me/5500000000000?text=Quero%20encomendar%20o%20Bolo%20Red%20Velvet" target="_blank" class="btn-sm"><i class="fa-brands fa-whatsapp"></i> Pedir</a>
+                            <button onclick="pedirWhatsApp('Bolo Red Velvet')" class="btn btn-whatsapp">Pedir</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Card 2 -->
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&q=80&w=600" alt="Croissants e Folheados">
-                    <div class="card-body">
+                <!-- Item 2 -->
+                <div class="menu-item" data-category="salgados">
+                    <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&q=80&w=600" alt="Croissant">
+                    <div class="menu-item-body">
                         <h3>Croissant Artesanal</h3>
-                        <p>Massa folhada de manteiga, dourada e crocante por fora, macia por dentro.</p>
-                        <div class="card-footer">
+                        <p>Massa folhada na manteiga, crocante por fora e bem macia por dentro.</p>
+                        <div class="menu-item-footer">
                             <span class="preco">R$ 12,00</span>
-                            <a href="https://wa.me/5500000000000?text=Quero%20pedir%20o%20Croissant%20Artesanal" target="_blank" class="btn-sm"><i class="fa-brands fa-whatsapp"></i> Pedir</a>
+                            <button onclick="pedirWhatsApp('Croissant Artesanal')" class="btn btn-whatsapp">Pedir</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Card 3 -->
-                <div class="card">
+                <!-- Item 3 -->
+                <div class="menu-item" data-category="doces">
                     <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&q=80&w=600" alt="Torta de Morango">
-                    <div class="card-body">
+                    <div class="menu-item-body">
                         <h3>Torta de Morango</h3>
-                        <p>Base crocante, creme patissière especial e morangos frescos selecionados.</p>
-                        <div class="card-footer">
+                        <p>Base crocante, creme especial da casa e morangos frescos selecionados.</p>
+                        <div class="menu-item-footer">
                             <span class="preco">R$ 16,00 / fatia</span>
-                            <a href="https://wa.me/5500000000000?text=Quero%20pedir%20a%20Torta%20de%20Morango" target="_blank" class="btn-sm"><i class="fa-brands fa-whatsapp"></i> Pedir</a>
+                            <button onclick="pedirWhatsApp('Torta de Morango')" class="btn btn-whatsapp">Pedir</button>
                         </div>
                     </div>
                 </div>
@@ -133,12 +129,12 @@
         </div>
     </section>
 
-    <!-- SEÇÃO LOCALIZAÇÃO & HORÁRIO -->
+    <!-- SEÇÃO LOCALIZAÇÃO -->
     <section id="localizacao" class="localizacao">
         <div class="container">
             <div class="section-title">
-                <h2>Venha nos Fazer uma Visita</h2>
-                <p>Estamos ansiosos para te receber em nosso espaço aconchegante!</p>
+                <h2>Onde nos Encontrar</h2>
+                <p>Venha nos fazer uma visita!</p>
             </div>
 
             <div class="loc-grid">
@@ -147,42 +143,21 @@
                         <i class="fa-solid fa-location-dot"></i>
                         <div>
                             <h4>Endereço</h4>
-                            <p>Rua dos Doces, 123 - Bairro Central</p>
-                            <p>Sua Cidade - UF</p>
+                            <p>Rua dos Doces, 123 - Centro</p>
                         </div>
                     </div>
-
                     <div class="info-card">
                         <i class="fa-solid fa-clock"></i>
                         <div>
-                            <h4>Horário de Funcionamento</h4>
+                            <h4>Horários</h4>
                             <p>Terça a Sábado: 09h às 19h</p>
-                            <p>Domingos: 10h às 18h</p>
-                            <p><em>Segunda-feira: Fechado</em></p>
+                            <p>Domingo: 10h às 18h</p>
                         </div>
                     </div>
-
-                    <div class="info-card">
-                        <i class="fa-solid fa-phone"></i>
-                        <div>
-                            <h4>Contato & Encomendas</h4>
-                            <p>(00) 99999-8888</p>
-                            <p>contato@arleconfeitaria.com.br</p>
-                        </div>
-                    </div>
-
-                    <a href="https://maps.google.com" target="_blank" class="btn btn-primary btn-block">
-                        <i class="fa-solid fa-map-location-dot"></i> Abrir no Google Maps
-                    </a>
                 </div>
 
-                <!-- Mapa Incorporado -->
                 <div class="mapa-box">
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.1975731238423!2d-46.65867!3d-23.561414!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDMzJzQxLjEiUyA0NsKwMzknMzEuMiJX!5e0!3m2!1spt-BR!2sbr!4v1620000000000!5m2!1spt-BR!2sbr" 
-                        allowfullscreen="" 
-                        loading="lazy">
-                    </iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.1975731238423!2d-46.65867!3d-23.561414!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDMzJzQxLjEiUyA0NsKwMzknMzEuMiJX!5e0!3m2!1spt-BR!2sbr!4v1620000000000!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
         </div>
@@ -193,12 +168,7 @@
         <div class="container footer-content">
             <div class="footer-brand">
                 <h3><span>Arle</span> Confeitaria</h3>
-                <p>O lugar perfeito para deixar a sua vida mais doce.</p>
-            </div>
-            <div class="footer-social">
-                <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="https://wa.me/5500000000000" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                <p>Adoçando a sua vida todos os dias.</p>
             </div>
         </div>
         <div class="footer-bottom">
@@ -206,7 +176,7 @@
         </div>
     </footer>
 
-    <!-- Arquivo JS Separado -->
+    <!-- CONEXÃO COM O SCRIPT JAVASCRIPT QUE VOCÊ ENVIOU -->
     <script src="script.js"></script>
 </body>
 </html>
