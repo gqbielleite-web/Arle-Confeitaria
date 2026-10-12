@@ -1,24 +1,135 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Arle Confeitaria</title>
-    <meta name="description" content="Bolos, tortas e doces feitos com carinho na Arle Confeitaria. Conheça nosso cardápio, veja como chegar e faça sua encomenda." />
-    <meta name="robots" content="index, follow" />
+    <meta
+      name="description"
+      content="Bolos, tortas e doces feitos com carinho na Arle Confeitaria."
+    />
     <meta property="og:title" content="Arle Confeitaria" />
-    <meta property="og:description" content="Bolos, tortas e doces feitos com carinho. Conheça a Arle Confeitaria." />
-    <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Arle Confeitaria" />
-    <meta name="twitter:description" content="Bolos, tortas e doces feitos com carinho. Conheça a Arle Confeitaria." />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+    <meta
+      property="og:description"
+      content="Um carinho em forma de doce. Conheça o cardápio da Arle."
+    />
+    <title>Arle Confeitaria | Um carinho em forma de doce</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./script.js" defer></script>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <header class="site-header">
+      <a class="brand" href="#inicio" aria-label="Arle Confeitaria — início">
+        <span class="brand-mark" aria-hidden="true">a</span>
+        <span><strong>arle</strong><small>confeitaria</small></span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu">
+        <span class="menu-toggle-label">Abrir menu</span>
+        <span aria-hidden="true">☰</span>
+      </button>
+      <nav id="menu" class="navigation" aria-label="Navegação principal">
+        <a href="#cardapio">Cardápio</a>
+        <a href="#visite">Onde estamos</a>
+        <a class="button button-small" data-order href="#visite">Pedir pelo WhatsApp</a>
+      </nav>
+    </header>
+    <main id="inicio">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Uma confeitaria de bairro</p>
+          <h1>Um carinho<br />em forma de <em>doce.</em></h1>
+          <p class="intro">
+            Bolos feitos com tempo, doces para dividir — e um motivo a mais
+            para deixar o dia mais gostoso.
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="#cardapio">Conheça o cardápio <span aria-hidden="true">↓</span></a>
+            <a class="text-link" data-order href="#visite">Faça sua encomenda</a>
+          </div>
+          <p class="handmade">Pequenos momentos também merecem bolo.</p>
+        </div>
+        <figure class="hero-photo">
+          <img
+            src="../images/hero-torta.jpg"
+            alt="Bolo artesanal de morango com camadas de creme"
+          />
+          <figcaption>Feito hoje, para o seu hoje</figcaption>
+        </figure>
+      </section>
+      <div class="ribbon" aria-hidden="true">
+        Feito com carinho <span>✳</span> Fresquinho todos os dias <span>✳</span>
+        Para compartilhar <span>✳</span> Um doce de cada vez <span>✳</span>
+      </div>
+      <section class="menu-section" id="cardapio">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Da nossa cozinha</p>
+            <h2>Um pedaço<br />de felicidade.</h2>
+          </div>
+          <p>Receitas queridas, ingredientes de verdade e cuidado em cada garfada.</p>
+        </div>
+        <div class="products">
+          <!-- Produtos e descrições de exemplo: troque pelos itens reais da Arle. -->
+          <article class="product">
+            <img src="../images/bolo-chocolate.jpg" alt="Bolo de chocolate com cobertura cremosa" loading="lazy" />
+            <div class="product-copy">
+              <h3>Bolo de brigadeiro</h3>
+              <p>Massa fofinha de chocolate, recheio cremoso e brigadeiro.</p>
+              <a data-order="Bolo de brigadeiro" href="#visite">Encomendar</a>
+            </div>
+          </article>
+          <article class="product">
+            <img src="../images/torta-limao.jpg" alt="Torta de limão com merengue" loading="lazy" />
+            <div class="product-copy">
+              <h3>Torta de limão</h3>
+              <p>Creme aveludado, acidez na medida e merengue dourado.</p>
+              <a data-order="Torta de limão" href="#visite">Encomendar</a>
+            </div>
+          </article>
+          <article class="product">
+            <img src="../images/docinhos.jpg" alt="Brigadeiros e beijinhos feitos à mão" loading="lazy" />
+            <div class="product-copy">
+              <h3>Docinhos da casa</h3>
+              <p>Brigadeiros e beijinhos enrolados um a um para dividir.</p>
+              <a data-order="Docinhos da casa" href="#visite">Encomendar</a>
+            </div>
+          </article>
+        </div>
+      </section>
+      <section class="visit-section" id="visite">
+        <div class="visit-copy">
+          <p class="eyebrow">Vai ser bom receber você</p>
+          <h2>Tem sempre um doce esperando.</h2>
+          <p>Venha nos visitar ou fale com a gente para combinar uma encomenda.</p>
+          <dl class="details">
+            <div><dt>Endereço</dt><dd data-address>[INSERIR ENDEREÇO COMPLETO]</dd></div>
+            <div><dt>Horários</dt><dd data-hours>[INSERIR DIAS E HORÁRIOS]</dd></div>
+          </dl>
+          <a class="button" data-order href="#visite">Converse com a Arle <span aria-hidden="true">→</span></a>
+          <a class="map-link" data-map href="#visite">Como chegar no mapa</a>
+        </div>
+        <div class="visit-art" aria-hidden="true">
+          <span class="pin">a</span>
+          <span>Um lugar doce<br />para chamar de seu.</span>
+        </div>
+      </section>
+      <section class="closing">
+        <p class="eyebrow">Uma vontade boa dessas</p>
+        <h2>Não precisa guardar<br />para depois.</h2>
+        <a class="button" data-order href="#visite">Encomende pelo WhatsApp <span aria-hidden="true">→</span></a>
+      </section>
+    </main>
+    <footer class="footer">
+      <a class="brand brand-footer" href="#inicio">
+        <span class="brand-mark" aria-hidden="true">a</span>
+        <span><strong>arle</strong><small>confeitaria</small></span>
+      </a>
+      <p>Um carinho em forma de doce.</p>
+    </footer>
   </body>
 </html>

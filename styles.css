@@ -1,96 +1,140 @@
-body {
-  font-family: 'Georgia', serif;
-  background: #fff8f0;
-  color: #5a3e2b;
-  margin: 0;
-  padding: 0 20px;
+:root {
+  color-scheme: light;
+  --cream: #f5f0e5;
+  --paper: #eee7da;
+  --ink: #38251f;
+  --wine: #8f4936;
+  --muted: #786960;
+  --pistachio: #c8d1aa;
+  font-family: "DM Sans", Arial, sans-serif;
+  color: var(--ink);
+  background: var(--cream);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
-
-header {
-  text-align: center;
-  padding: 30px 0;
-  background: #f4e1d2;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+body { margin: 0; min-width: 320px; }
+img { display: block; width: 100%; object-fit: cover; }
+a { color: inherit; }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--wine); outline-offset: 4px; }
+.site-header {
+  position: sticky; top: 0; z-index: 5; display: flex; align-items: center;
+  justify-content: space-between; gap: 24px; padding: 14px max(5.2%, calc((100% - 1280px) / 2));
+  background: rgb(245 240 229 / 94%); border-bottom: 1px solid rgb(56 37 31 / 12%);
+  backdrop-filter: blur(12px);
 }
-
-header h1 {
-  font-size: 3em;
-  margin: 0;
+.brand { display: inline-flex; align-items: center; gap: 11px; text-decoration: none; }
+.brand-mark { display: grid; width: 43px; height: 43px; place-items: center; border: 1px solid var(--wine);
+  border-radius: 50%; color: var(--wine); font: italic 25px "Playfair Display", Georgia, serif; }
+.brand strong { display: block; font: 600 21px "Playfair Display", Georgia, serif; }
+.brand small { display: block; margin-top: 1px; font-size: 8px; letter-spacing: .22em; text-transform: uppercase; }
+.navigation { display: flex; align-items: center; gap: 30px; }
+.navigation a { font-size: 13px; text-decoration: none; }
+.navigation a:hover, .text-link:hover, .product-copy a:hover, .map-link:hover { color: var(--wine); }
+.menu-toggle { display: none; border: 1px solid var(--ink); background: transparent; color: var(--ink); padding: 10px; }
+.menu-toggle-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+.button { display: inline-flex; align-items: center; justify-content: center; gap: 14px; padding: 14px 19px;
+  border: 1px solid var(--wine); background: var(--wine); color: #fff8ed; font-size: 12px;
+  letter-spacing: .03em; text-decoration: none; transition: transform .2s ease, background .2s ease; }
+.button:hover { transform: translateY(-2px); background: #743724; }
+.button-small { padding: 13px 18px; }
+.text-link { padding: 8px 0; border-bottom: 1px solid #987f6d; font-size: 13px; text-decoration: none; }
+.eyebrow { margin: 0 0 20px; color: var(--wine); font-size: 11px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; }
+h1, h2, h3, figure, p { margin-top: 0; }
+h1, h2 { font-family: "Playfair Display", Georgia, serif; font-weight: 500; letter-spacing: -.045em; }
+.hero { display: grid; grid-template-columns: .91fr 1.09fr; align-items: center; gap: 5.5%;
+  max-width: 1440px; min-height: 620px; margin: auto; padding: 53px 5.2% 82px; }
+.hero-copy { padding-left: 3%; }
+.hero h1 { margin-bottom: 24px; font-size: clamp(3.6rem, 7.1vw, 6.8rem); line-height: .98; }
+.hero h1 em { color: var(--wine); }
+.intro { max-width: 420px; margin-bottom: 28px; color: var(--muted); font-size: 16px; line-height: 1.75; }
+.hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 23px; }
+.handmade { display: flex; align-items: center; gap: 12px; margin: 38px 0 0; color: var(--muted); font-size: 11px; }
+.handmade::before { content: "a"; display: grid; width: 35px; height: 35px; place-items: center; border: 1px solid #c2b5a6;
+  border-radius: 50%; color: var(--wine); font: italic 17px "Playfair Display", Georgia, serif; }
+.hero-photo { position: relative; margin: 0 20px 22px 0; }
+.hero-photo::after { position: absolute; z-index: -1; inset: 26px -19px -19px 25px; border: 1px solid #aa7659; content: ""; }
+.hero-photo img { height: min(61vw, 620px); min-height: 450px; }
+.hero-photo figcaption { position: absolute; bottom: -22px; left: -28px; padding: 15px 19px; background: var(--pistachio);
+  font: italic 15px "Playfair Display", Georgia, serif; }
+.ribbon { overflow: hidden; padding: 17px 5%; background: var(--wine); color: #f7eee1; text-align: center;
+  font: italic 17px "Playfair Display", Georgia, serif; white-space: nowrap; }
+.ribbon span { padding: 0 15px; color: var(--pistachio); }
+.menu-section { padding: 100px 5.2%; background: var(--paper); }
+.section-heading { display: flex; align-items: end; justify-content: space-between; gap: 32px; max-width: 1220px; margin: 0 auto 42px; }
+.section-heading h2, .visit-copy h2, .closing h2 { margin-bottom: 0; font-size: clamp(2.7rem, 5vw, 4.8rem); line-height: 1.03; }
+.section-heading > p { max-width: 340px; margin-bottom: 6px; color: var(--muted); font-size: 14px; line-height: 1.7; }
+.products { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; max-width: 1220px; margin: auto; }
+.product img { height: 345px; background: #ddd2c2; }
+.product-copy { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; padding-top: 17px; }
+.product h3 { margin-bottom: 7px; font: 500 23px "Playfair Display", Georgia, serif; }
+.product p { max-width: 275px; margin-bottom: 0; color: var(--muted); font-size: 12px; line-height: 1.65; }
+.product-copy a { padding: 5px 0; border-bottom: 1px solid #b88c78; color: var(--wine); font-size: 10px; letter-spacing: .06em;
+  text-decoration: none; text-transform: uppercase; white-space: nowrap; }
+.visit-section { display: grid; grid-template-columns: .83fr 1.17fr; align-items: center; gap: 9%;
+  padding: 100px 7%; background: var(--ink); color: var(--cream); }
+.visit-copy { max-width: 470px; }
+.visit-copy .eyebrow { color: var(--pistachio); }
+.visit-copy h2 { margin-bottom: 20px; }
+.visit-copy > p:not(.eyebrow) { color: #d1c2b5; font-size: 14px; line-height: 1.75; }
+.details { display: grid; gap: 18px; margin: 30px 0; }
+.details div { display: grid; grid-template-columns: 90px 1fr; gap: 14px; padding-bottom: 14px; border-bottom: 1px solid rgb(245 240 229 / 18%); }
+.details dt { color: var(--pistachio); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; }
+.details dd { margin: 0; font-size: 13px; line-height: 1.6; }
+.map-link { display: block; width: fit-content; margin-top: 17px; color: var(--cream); font-size: 12px; text-underline-offset: 4px; }
+.visit-art { display: grid; min-height: 360px; place-content: center; gap: 15px; background:
+  repeating-linear-gradient(33deg, transparent 0 50px, rgb(56 37 31 / 10%) 51px 53px, transparent 54px 105px),
+  linear-gradient(135deg, #d9cbb4, #c7c9aa); color: var(--ink); text-align: center; }
+.visit-art > span:last-child { font: 24px/1.5 "Playfair Display", Georgia, serif; }
+.pin { display: grid; width: 43px; height: 43px; place-items: center; margin: auto; border: 1px solid var(--wine);
+  border-radius: 50%; color: var(--wine); font: italic 21px "Playfair Display", Georgia, serif; }
+.closing { padding: 75px 6%; background: var(--pistachio); text-align: center; }
+.closing h2 { margin: 15px auto 28px; }
+.footer { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 30px 7%;
+  background: #2d1f1b; color: #eee4d5; }
+.brand-footer { color: inherit; }
+.brand-footer .brand-mark { border-color: #d9b5a0; color: #d9b5a0; }
+.footer p { margin: 0; color: #cbbcaf; font-size: 12px; }
+@media (max-width: 850px) {
+  .hero { min-height: 0; gap: 4%; }
+  .hero h1 { font-size: clamp(3.2rem, 7.8vw, 5.2rem); }
+  .hero-photo img { min-height: 390px; }
+  .products { gap: 16px; }
+  .product img { height: 270px; }
+  .visit-section { gap: 5%; }
 }
-
-header p {
-  font-style: italic;
-  margin-top: 5px;
+@media (max-width: 680px) {
+  html { scroll-padding-top: 72px; }
+  .site-header { min-height: 70px; padding: 12px 6%; }
+  .brand-mark { width: 39px; height: 39px; }
+  .menu-toggle { display: inline-flex; align-items: center; gap: 9px; cursor: pointer; }
+  .navigation { position: absolute; top: 69px; right: 0; left: 0; display: none; align-items: stretch; gap: 0;
+    padding: 15px 6% 24px; border-bottom: 1px solid #d4c8b7; background: var(--cream); }
+  .navigation.is-open { display: flex; flex-direction: column; }
+  .navigation a { padding: 14px 0; border-bottom: 1px solid #e2d8c9; }
+  .navigation .button-small { margin-top: 14px; padding: 14px; }
+  .hero { display: flex; flex-direction: column; align-items: stretch; gap: 38px; padding: 35px 6% 58px; }
+  .hero-copy { padding-left: 0; }
+  .hero h1 { font-size: clamp(3.5rem, 14vw, 5rem); }
+  .intro { font-size: 14px; }
+  .handmade { margin-top: 27px; }
+  .hero-photo { margin-left: 14px; }
+  .hero-photo img { height: 110vw; min-height: 345px; max-height: 500px; }
+  .hero-photo figcaption { left: -13px; font-size: 13px; }
+  .ribbon { text-align: left; font-size: 15px; }
+  .menu-section { padding: 72px 6%; }
+  .section-heading { display: block; margin-bottom: 30px; }
+  .section-heading h2, .visit-copy h2, .closing h2 { font-size: 3.2rem; }
+  .section-heading > p { margin-top: 15px; }
+  .products { grid-template-columns: 1fr; gap: 33px; }
+  .product img { height: 92vw; max-height: 420px; }
+  .visit-section { grid-template-columns: 1fr; gap: 32px; padding: 72px 6%; }
+  .visit-art { min-height: 290px; }
+  .closing { padding: 62px 7%; }
+  .footer { align-items: flex-start; flex-direction: column; padding: 28px 6%; }
 }
-
-#welcome {
-  text-align: center;
-  margin: 40px 0;
-}
-
-#menu {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-}
-
-.product {
-  background: #fff;
-  border-radius: 15px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  padding: 15px;
-  max-width: 280px;
-  text-align: center;
-}
-
-.product img {
-  width: 100%;
-  border-radius: 12px;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
-}
-
-.product h3 {
-  margin-top: 15px;
-  color: #7b4a31;
-}
-
-.product p {
-  font-size: 0.9em;
-  margin: 10px 0 15px;
-  color: #6a4a31;
-}
-
-.whatsapp-btn {
-  background-color: #25d366;
-  color: white;
-  text-decoration: none;
-  padding: 10px 18px;
-  border-radius: 30px;
-  font-weight: bold;
-  display: inline-block;
-  transition: background-color 0.3s ease;
-}
-
-.whatsapp-btn:hover {
-  background-color: #1ebe57;
-}
-
-#location {
-  background: #f4e1d2;
-  padding: 25px 20px;
-  border-radius: 12px;
-  text-align: center;
-  margin: 40px 0;
-}
-
-#location p {
-  margin: 8px 0;
-}
-
-footer {
-  text-align: center;
-  padding: 20px 0;
-  font-size: 0.9em;
-  color: #7b4a31;
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
 }
