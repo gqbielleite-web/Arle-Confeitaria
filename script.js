@@ -1,60 +1,78 @@
-/*
- * Personalize esta configuração com os dados reais da Arle antes de publicar.
- * O telefone deve ter somente números: código do país + DDD + número.
- * Exemplo de formato: 5511999999999 (não use esse número como contato real).
+/* ==========================================================================
+   ARLE CONFEITARIA - JAVASCRIPT
+   ========================================================================== */
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    // 1. Alternar Menu Mobile (Hambúrguer)
+    const menuToggle = document.getElementById('menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+
+    if (menuToggle && navMenu) {
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            const icon = menuToggle.querySelector('i');
+            if (navMenu.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            } else {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            }
+        });
+    }
+
+    // 2. Fechar menu ao clicar em um link (para telas pequenas)
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+                const icon = menuToggle.querySelector('i');
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            }
+        });
+    });
+
+    // 3. Filtro de Categorias do Cardápio
+    const categoryBtns = document.querySelectorAll('.category-btn');
+    const menuItems = document.querySelectorAll('.menu-item');
+
+    categoryBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Remove a classe 'active' de todos os botões
+            categoryBtns.forEach(b => b.classList.remove('active'));
+            // Adiciona no botão clicado
+            btn.classList.add('active');
+
+            const category = btn.getAttribute('data-category');
+
+            menuItems.forEach(item => {
+                const itemCategory = item.getAttribute('data-category');
+
+                if (category === 'todos' || itemCategory === category) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    });
+});
+
+/**
+ * 4. Função para gerar o link direto do WhatsApp ao pedir um produto
+ * @param {string} nomeProduto 
  */
-const ARLE_CONFIG = {
-  whatsappNumber: "",
-  address: "[INSERIR ENDEREÇO COMPLETO]",
-  openingHours: "[INSERIR DIAS E HORÁRIOS]",
-  mapsDestination: "",
-};
-const cleanPhone = ARLE_CONFIG.whatsappNumber.replace(/\D/g, "");
-const addressIsSet = !ARLE_CONFIG.address.startsWith("[");
-const whatsappIsSet = cleanPhone.length >= 12;
-document.querySelector("[data-address]").textContent = ARLE_CONFIG.address;
-document.querySelector("[data-hours]").textContent = ARLE_CONFIG.openingHours;
-document.querySelectorAll("[data-order]").forEach((link) => {
-  const product = link.dataset.order;
-  const message = product
-    ? `Oi, Arle! Quero saber mais sobre ${product} e fazer uma encomenda.`
-    : "Oi, Arle! Quero conhecer o cardápio e fazer uma encomenda.";
-  if (whatsappIsSet) {
-    link.href = `https://wa.me/${cleanPhone}?text=${encodeURIComponent(message)}`;
-    link.target = "_blank";
-    link.rel = "noreferrer";
-  } else {
-    link.addEventListener("click", (event) => {
-      event.preventDefault();
-      window.alert("Preencha whatsappNumber no arquivo script.js com o telefone da Arle.");
-    });
-  }
-});
-document.querySelectorAll("[data-map]").forEach((link) => {
-  if (addressIsSet || ARLE_CONFIG.mapsDestination.trim()) {
-    const destination = ARLE_CONFIG.mapsDestination.trim() || ARLE_CONFIG.address;
-    link.href = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(destination)}`;
-    link.target = "_blank";
-    link.rel = "noreferrer";
-  } else {
-    link.addEventListener("click", (event) => {
-      event.preventDefault();
-      window.alert("Preencha address ou mapsDestination no arquivo script.js para ativar o mapa.");
-    });
-  }
-});
-const menuButton = document.querySelector(".menu-toggle");
-const menu = document.querySelector("#menu");
-menuButton.addEventListener("click", () => {
-  const isOpen = menuButton.getAttribute("aria-expanded") === "true";
-  menuButton.setAttribute("aria-expanded", String(!isOpen));
-  menuButton.querySelector(".menu-toggle-label").textContent = isOpen ? "Abrir menu" : "Fechar menu";
-  menu.classList.toggle("is-open", !isOpen);
-});
-menu.querySelectorAll("a").forEach((link) => {
-  link.addEventListener("click", () => {
-    menuButton.setAttribute("aria-expanded", "false");
-    menuButton.querySelector(".menu-toggle-label").textContent = "Abrir menu";
-    menu.classList.remove("is-open");
-  });
-});
+function pedirWhatsApp(nomeProduto) {
+    // Altere este número para o WhatsApp oficial da confeitaria (com DDD e Código do País 55)
+    const numeroTelefone = "5541999999999"; 
+    
+    const mensagem = `Olá, Arle Confeitaria! Gostaria de fazer o pedido do item: *${nomeProduto}*. Poderiam me informar a disponibilidade e formas de entrega?`;
+    const mensagemCodificada = encodeURIComponent(mensagem);
+    
+    const urlWhatsApp = `https://wa.me/${numeroTelefone}?text=${mensagemCodificada}`;
+    
+    window.open(urlWhatsApp, '_blank');
+}
